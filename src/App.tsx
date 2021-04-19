@@ -8,6 +8,8 @@ export const App = () => {
   const [numberValue, setNumberValue] = useState<number>();
   const [randomNumber, setrandomNumber] = useState<number>();
   const [isModalOpen, setModalOpen] = useState<boolean>(false);
+  const [showLog, setLog] = useState<boolean>(false);
+  const [next, setNext] = useState<boolean>(false);
 
   const startfunc = () => {
     return (start = Date.now());
@@ -93,7 +95,27 @@ export const App = () => {
             gen
           </button>
         </div>
-
+        <button className="changelog-btn" onClick={() => setLog(!showLog)}>
+          changelog
+        </button>
+        {showLog && (
+          <div className="changeLog">
+            изменения в общем такие. хорошие. <button onClick={() => setNext(!next)}>далее →</button>
+            {next && (
+              <ul>
+                <li>у нас тут в общем капитальный редизайн;</li>
+                <li>модалка теперь закрывается по вне (украденная разработка Илона Васильевича Маска);</li>
+                <li>полная адаптация под мобильные устройства(да вообще под все устройства);</li>
+                <li>
+                  пользователи, которые любят проблемы, теперь не смогут отправлять одинаковые числа. <br />
+                  система не примет, даже если постараться;
+                </li>
+                <li>а еще, если нажать снова на changelog, то закроется вся ветка сразу;</li>
+                <li>много мелких доработок (честно).</li>
+              </ul>
+            )}
+          </div>
+        )}
         <button className="modalButton" onClick={() => setModalOpen(!isModalOpen)}>
           ?
         </button>

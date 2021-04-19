@@ -4,8 +4,7 @@
   background-color: #f3f3f3;
   position: absolute;
   z-index: 10;
-  top: 150px;
-  left: 350px;
+  margin: 250px 40%;
   border: 1px solid black;
   box-shadow: 0 0 13px 4px gray;
 }
@@ -40,4 +39,17 @@
 
 .interface {
   display: flex;
+}
+
+.changeLog {
+  position: relative;
+  box-sizing: border-box;
+  float: right;
+  right: 300px;
+}
+
+.changelog-btn {
+  position: absolute;
+  right: 100px;
+  top: 25px;
 }
