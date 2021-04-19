@@ -8,9 +8,11 @@
   border: 1px solid black;
   box-shadow: 0 0 13px 4px gray;
 }
+
 .modal-container {
   color: #333333;
 }
+
 .exit-modal-button {
   color: #333333;
   position: absolute;
@@ -45,7 +47,8 @@
   position: relative;
   box-sizing: border-box;
   float: right;
-  right: 300px;
+  right: 5%;
+  top: 50px;
 }
 
 .changelog-btn {

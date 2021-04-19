@@ -4,6 +4,7 @@ import "./App.scss";
 
 let start = 0;
 let steps = 0;
+
 export const App = () => {
   const [numberValue, setNumberValue] = useState<number>();
   const [randomNumber, setrandomNumber] = useState<number>();
@@ -61,6 +62,7 @@ export const App = () => {
   };
 
   // console.log(randomNumber);
+
   const reset = () => {
     const form = document.getElementById("form") as HTMLFormElement;
 
