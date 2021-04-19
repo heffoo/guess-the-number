@@ -1,25 +1,24 @@
-import React, { useRef, FC } from "react";
+import React, { useRef, useEffect ,FC } from "react";
 
 interface Props {
   setModalOpen: any;
   isModalOpen: boolean;
 }
 export const Modal: FC<Props> = ({ setModalOpen, isModalOpen }) => {
-    console.log('isModalOpen', isModalOpen)
-  const modal = useRef(null);
-  //   const onClickOutsideHandler = (e: any) => {
-  //     if (
-  //       (isModalOpen && !modal.contains(e.target)) ||
-  //       (isModalOpen && e.target.classList.contains("exit-modal-button"))
-  //     ) {
-  //       setModalOpen(false);
-  //       window.removeEventListener("click", onClickOutsideHandler);
-  //     }
-  //   };
+  const modal = useRef<HTMLDivElement>(null);
+    const onClickOutsideHandler = (e: any) => {
+      if (
+        (isModalOpen && !modal.current!.contains(e.target)) ||
+        (isModalOpen && e.target.classList.contains("exit-modal-button"))
+      ) {
+        setModalOpen(false);
+        window.removeEventListener("click", onClickOutsideHandler);
+      }
+    };
 
-  //   useEffect(() => {
-  //     window.addEventListener("click", onClickOutsideHandler);
-  //   }, [setModalOpen, isModalOpen, modal]);
+    useEffect(() => {
+      window.addEventListener("click", onClickOutsideHandler);
+    }, [setModalOpen, isModalOpen, modal]);
   if (isModalOpen) {
     return (
       <div className="modal">
