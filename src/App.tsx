@@ -21,8 +21,18 @@ export const App = () => {
   let k = 0;
   let e = 0;
   let s = 0;
-
+  let n = 0;
   const compare = () => {
+    for (; n < 4; n++) {
+      if (numberValue?.toString().slice()[n] === numberValue?.toString().slice()[n + 1]) {
+        console.log(
+          "напишите правильно. ваше число `" + numberValue?.toString().slice()[n] + "` используется несколько раз."
+        );
+        alert("write a correct number");
+        return;
+      }
+    }
+
     for (; i < 4; i++) {
       if (randomNumber?.toString().slice()[i] === numberValue?.toString().slice()[i]) {
         k++;
@@ -59,33 +69,35 @@ export const App = () => {
   return (
     <div className="App">
       <div className="div2">
-        <form
-          id="form"
-          onSubmit={(e: any) => {
-            e.preventDefault();
-            compare();
-            reset();
-          }}
-        >
-          <input
-            type="text"
-            pattern="[0-9]{4}"
-            onKeyPress={(e) => e.key === "Enter" && console.log(numberValue)}
-            onChange={(e: any) => setNumberValue(Number(e.target.value))}
-          />
-        </form>
-        <button
-          onClick={() => {
-            setrandomNumber(shuffle("0123456789".split("")).join("").substring(0, 4));
-          }}
-        >
-          gen
-        </button>
+        <div className="interface">
+          <form
+            id="form"
+            onSubmit={(e: any) => {
+              e.preventDefault();
+              compare();
+              reset();
+            }}
+          >
+            <input
+              type="text"
+              pattern="[0-9]{4}"
+              onKeyPress={(e) => e.key === "Enter" && console.log(numberValue)}
+              onChange={(e: any) => setNumberValue(Number(e.target.value))}
+            />
+          </form>
+          <button
+            onClick={() => {
+              setrandomNumber(shuffle("0123456789".split("")).join("").substring(0, 4));
+            }}
+          >
+            gen
+          </button>
+        </div>
+
         <button className="modalButton" onClick={() => setModalOpen(!isModalOpen)}>
           ?
         </button>
         {isModalOpen && <Modal setModalOpen={setModalOpen} isModalOpen={isModalOpen} />}
-        {/* <span className="bumber">{Number(randomNumber) === Number(numberValue) ? "you win" : "you lose"}</span> */}
       </div>
     </div>
   );
