@@ -1,0 +1,39 @@
+.modal {
+  height: 150px;
+  width: 200px;
+  background-color: #f3f3f3;
+  position: absolute;
+  z-index: 10;
+  top: 150px;
+  left: 350px;
+  border: 1px solid black;
+  box-shadow: 0 0 13px 4px gray;
+}
+.modal-container {
+  color: #333333;
+}
+.exit-modal-button {
+  color: #333333;
+  position: absolute;
+  right: 0;
+  top: 0;
+  font: {
+    size: 20px;
+  }
+  background-color: transparent;
+  border: 0;
+}
+
+.modalButton {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  cursor: pointer;
+  background-color: transparent;
+  font-size: 24px;
+  border: 0;
+  outline: 0;
+  &:hover {
+    transform: scale(1.3);
+  }
+}
