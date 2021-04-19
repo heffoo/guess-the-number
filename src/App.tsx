@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Modal } from "./modal";
-import './App.scss'
+import "./App.scss";
 
 let start = 0;
 let steps = 0;
@@ -41,7 +41,7 @@ export const App = () => {
       console.log(
         "you win, вы потратили ",
         Math.round((end - start) / 1000) > 60 ? ((end - start) / 60000).toFixed(2) : Math.round((end - start) / 1000),
-        Math.round((end - start) / 1000) > 60 ? "минуты и сделали" : 'секунд и сделали',
+        Math.round((end - start) / 1000) > 60 ? "минуты и сделали" : "секунд и сделали",
         steps,
         "шагов"
       );
@@ -81,7 +81,9 @@ export const App = () => {
         >
           gen
         </button>
-        <button className="modalButton" onClick={() => setModalOpen(!isModalOpen)}>?</button>
+        <button className="modalButton" onClick={() => setModalOpen(!isModalOpen)}>
+          ?
+        </button>
         {isModalOpen && <Modal setModalOpen={setModalOpen} isModalOpen={isModalOpen} />}
         {/* <span className="bumber">{Number(randomNumber) === Number(numberValue) ? "you win" : "you lose"}</span> */}
       </div>
