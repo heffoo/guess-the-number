@@ -27,7 +27,7 @@ export const Modal: FC<Props> = ({ setModalOpen, isModalOpen }) => {
         <div ref={modal} className="modal-container">
           короче, нажимаете gen, генерируется случайное число, надо угадать по подсказкам в консоли, вот и все. точные
           попадания - точно попал по месту цифры, просто попадания - ну просто попал. начинаться может с нуля, цифры
-          повторяться не могут.<br></br> ¯\_(ツ)_/¯
+          повторяться не могут.<br></br> ¯\_(ツ)_/¯ кто найдет баг, тому дам 5 рублей
         </div>
         {/* <button onClick={() => setModalOpen(!isModalOpen)} className="exit-modal-button">
           ×

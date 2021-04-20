@@ -21,23 +21,25 @@ export const App = () => {
     startfunc();
     return o;
   }
-  let i = 0;
+
   let k = 0;
   let e = 0;
-  let s = 0;
-  let n = 0;
+
   const compare = () => {
-    for (; n < 4; n++) {
-      if (numberValue?.toString().slice()[n] === numberValue?.toString().slice()[n + 1]) {
-        console.log(
-          "напишите правильно. ваше число `" + numberValue?.toString().slice()[n] + "` используется несколько раз."
-        );
-        alert("write a correct number");
-        return;
+    for (let z = 0; z < 4; z++) {
+      for (let n = 0; n < z; n++) {
+        console.log("zn", z, n);
+        if (numberValue?.toString().slice()[n] === numberValue?.toString().slice()[z]) {
+          console.log(
+            "напишите правильно. ваше число `" + numberValue?.toString().slice()[n] + "` используется несколько раз."
+          );
+          alert("write a correct number");
+          return;
+        }
       }
     }
 
-    for (; i < 4; i++) {
+    for (let i = 0; i < 4; i++) {
       if (randomNumber?.toString().slice()[i] === numberValue?.toString().slice()[i]) {
         k++;
       }
@@ -46,7 +48,7 @@ export const App = () => {
     console.log("точных совпадений:", k);
     steps++;
 
-    for (; s < 4; s++) {
+    for (let s = 0; s < 4; s++) {
       if (randomNumber?.toString().split("").includes(numberValue!.toString().split("")[s])) e++;
     }
 
@@ -116,7 +118,8 @@ export const App = () => {
                   система не примет, даже если постараться;
                 </li>
                 <li>а еще, если нажать снова на changelog, то закроется вся ветка сразу;</li>
-                <li>фикс цифр, начинающихся с 0;</li>
+                <li>фикс цифр, начинающихся с 0;</li> 
+                <li>фикс повторяющихся цифр;</li> 
                 <li>много мелких доработок (честно).</li>
               </ul>
             )}
