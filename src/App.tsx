@@ -28,7 +28,6 @@ export const App = () => {
   const compare = () => {
     for (let z = 0; z < 4; z++) {
       for (let n = 0; n < z; n++) {
-        console.log("zn", z, n);
         if (numberValue?.toString().slice()[n] === numberValue?.toString().slice()[z]) {
           console.log(
             "напишите правильно. ваше число `" + numberValue?.toString().slice()[n] + "` используется несколько раз."
@@ -65,7 +64,7 @@ export const App = () => {
       );
   };
 
-  console.log(randomNumber);
+  // console.log(randomNumber);
 
   const reset = () => {
     const form = document.getElementById("form") as HTMLFormElement;
