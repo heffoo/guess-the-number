@@ -6,8 +6,8 @@ let start = 0;
 let steps = 0;
 
 export const App = () => {
-  const [numberValue, setNumberValue] = useState<number>();
-  const [randomNumber, setrandomNumber] = useState<number>();
+  const [numberValue, setNumberValue] = useState<string>();
+  const [randomNumber, setrandomNumber] = useState<string>();
   const [isModalOpen, setModalOpen] = useState<boolean>(false);
   const [showLog, setLog] = useState<boolean>(false);
   const [next, setNext] = useState<boolean>(false);
@@ -42,8 +42,10 @@ export const App = () => {
         k++;
       }
     }
+
     console.log("точных совпадений:", k);
     steps++;
+
     for (; s < 4; s++) {
       if (randomNumber?.toString().split("").includes(numberValue!.toString().split("")[s])) e++;
     }
@@ -51,7 +53,7 @@ export const App = () => {
     let end = Date.now();
 
     console.log("совпадений:", e - k);
-    Number(randomNumber) === Number(numberValue) &&
+    randomNumber === numberValue &&
       console.log(
         "you win, вы потратили ",
         Math.round((end - start) / 1000) > 60 ? ((end - start) / 60000).toFixed(2) : Math.round((end - start) / 1000),
@@ -61,7 +63,7 @@ export const App = () => {
       );
   };
 
-  // console.log(randomNumber);
+  console.log(randomNumber);
 
   const reset = () => {
     const form = document.getElementById("form") as HTMLFormElement;
@@ -87,7 +89,7 @@ export const App = () => {
               type="text"
               pattern="[0-9]{4}"
               onKeyPress={(e) => e.key === "Enter" && console.log(numberValue)}
-              onChange={(e: any) => setNumberValue(Number(e.target.value))}
+              onChange={(e: any) => setNumberValue(e.target.value)}
             />
           </form>
           <button
@@ -114,6 +116,7 @@ export const App = () => {
                   система не примет, даже если постараться;
                 </li>
                 <li>а еще, если нажать снова на changelog, то закроется вся ветка сразу;</li>
+                <li>фикс цифр, начинающихся с 0;</li>
                 <li>много мелких доработок (честно).</li>
               </ul>
             )}
